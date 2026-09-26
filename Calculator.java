@@ -1,8 +1,10 @@
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
@@ -19,12 +21,24 @@ public class Calculator {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 400);
         frame.setLayout(new FlowLayout()); // Arranges components linearly
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Create the display for the calculator
+        //Create Display for calculator
+        JLabel display = new JLabel();
+        display.setHorizontalAlignment(JLabel.CENTER);
+        display.setVerticalAlignment(JLabel.TOP);
+        display.setVerticalTextPosition(JLabel.TOP);
+        display.setHorizontalTextPosition(JLabel.CENTER);
+        display.setText("0000000000000000");
+        display.setBackground(Color.BLACK);
+        display.setOpaque(true);
+        display.setBounds(0,0,250,250);
+
+        /*Create the display for the calculator
         JTextField display = new JTextField("0");
         display.setPreferredSize(new Dimension(250,30));
         display.setHorizontalAlignment(JTextField.RIGHT);
-
+        */
         // 2. Create the JButtons
         JButton button1 = new JButton("1");
         JButton button2 = new JButton("2");
