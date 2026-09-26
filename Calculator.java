@@ -3,11 +3,10 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-
 public class Calculator {
 
     public static void main(String[] args){
@@ -15,13 +14,14 @@ public class Calculator {
         String input2 = "0";
         String currentInput = "0";
         String result = "0";
+        int frameWidth = 400;
+        int frameHeight = 600;
 
         // 1. Create the main window frame for the calculator
         JFrame frame = new JFrame("Calculator");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 400);
-        frame.setLayout(new FlowLayout()); // Arranges components linearly
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(frameWidth, frameHeight);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);frame.setLayout(null);
+
 
         //Create Display for calculator
         JLabel display = new JLabel();
@@ -32,13 +32,21 @@ public class Calculator {
         display.setText("0000000000000000");
         display.setBackground(Color.BLACK);
         display.setOpaque(true);
-        display.setBounds(0,0,250,250);
+        display.setBounds(0,0,frameWidth - 50,frameHeight - 50);
 
         /*Create the display for the calculator
         JTextField display = new JTextField("0");
         display.setPreferredSize(new Dimension(250,30));
         display.setHorizontalAlignment(JTextField.RIGHT);
         */
+       JPanel displayPanel = new JPanel();
+       displayPanel.setBounds(25,0,frameWidth - 25,25);
+       displayPanel.setBackground(Color.RED);
+
+       JPanel buttonPanel = new JPanel();
+       buttonPanel.setBounds(25,25,frameWidth - 25,frameHeight);
+       buttonPanel.setBackground(Color.blue);
+
         // 2. Create the JButtons
         JButton button1 = new JButton("1");
         JButton button2 = new JButton("2");
@@ -85,17 +93,19 @@ public class Calculator {
         });
 
         // 4. Add everything to the frame
-        frame.add(display);
-        frame.add(button1);
-        frame.add(button2);
-        frame.add(button3);
-        frame.add(button4);
-        frame.add(button5);
-        frame.add(button6);
-        frame.add(button7);
-        frame.add(button8);
-        frame.add(button9);
-        frame.add(button0);
+        displayPanel.add(display);
+        buttonPanel.add(button1);
+        buttonPanel.add(button2);
+        buttonPanel.add(button3);
+        buttonPanel.add(button4);
+        buttonPanel.add(button5);
+        buttonPanel.add(button6);
+        buttonPanel.add(button7);
+        buttonPanel.add(button8);
+        buttonPanel.add(button9);
+        buttonPanel.add(button0);
+        frame.add(displayPanel);
+        frame.add(buttonPanel);
         frame.setLocationRelativeTo(null); // Centers window
         frame.setVisible(true);
     }
