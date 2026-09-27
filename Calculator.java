@@ -1,12 +1,11 @@
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Font;
+
 public class Calculator {
 
     public static String input1 = "0";
@@ -32,30 +31,24 @@ public class Calculator {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);frame.setLayout(null);
 
 
-        //Create Display for calculator
+        //2. Create Display for calculator
         JLabel display = new JLabel();
         display.setVerticalTextPosition(JLabel.TOP);
         display.setHorizontalTextPosition(JLabel.CENTER);
         display.setText(currentInput);
-        display.setBackground(Color.BLACK);
+        display.setFont(new Font("Times New Roman",Font.BOLD,30));
+        display.setBackground(Color.lightGray);
         display.setOpaque(true);
         display.setBounds(0,0,frameWidth - 50,frameHeight - 50);
 
-        /*Create the display for the calculator
-        JTextField display = new JTextField("0");
-        display.setPreferredSize(new Dimension(250,30));
-        display.setHorizontalAlignment(JTextField.RIGHT);
-        */
-
+        //3. Creating Panels to hold everything
        JPanel displayPanel = new JPanel();
-       displayPanel.setBounds(25,0,frameWidth - 25,25);
-       displayPanel.setBackground(Color.RED);
+       displayPanel.setBounds(25,0,frameWidth - 25,50);
 
        JPanel buttonPanel = new JPanel();
-       buttonPanel.setBounds(25,25,frameWidth - 25,frameHeight);
-       buttonPanel.setBackground(Color.blue);
+       buttonPanel.setBounds(25,50,frameWidth - 25,frameHeight);
 
-        // 2. Create the JButtons
+        //4. Create the JButtons
         JButton button1 = new JButton("1");
         JButton button2 = new JButton("2");
         JButton button3 = new JButton("3");
@@ -68,7 +61,7 @@ public class Calculator {
         JButton button0 = new JButton("0");
 
 
-        // 3. Add behavior using a lambda expression (Action Listener)
+        // 5. Add behavior using a lambda expression (Action Listener)
         button1.addActionListener(e -> {
             concatInput("1");
             display.setText(currentInput);
@@ -120,7 +113,7 @@ public class Calculator {
             buttonPresses++;        
         });
 
-        // 4. Add everything to the frame
+        // 6. Add everything to the frame
         displayPanel.add(display);
         buttonPanel.add(button1);
         buttonPanel.add(button2);
