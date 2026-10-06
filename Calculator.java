@@ -48,7 +48,7 @@ public class Calculator {
        JPanel buttonPanel = new JPanel();
        buttonPanel.setBounds(25,50,frameWidth - 25,frameHeight);
 
-        //4. Create the JButtons
+        //4. Creating the number buttons
         JButton button1 = new JButton("1");
         JButton button2 = new JButton("2");
         JButton button3 = new JButton("3");
@@ -59,6 +59,9 @@ public class Calculator {
         JButton button8 = new JButton("8");
         JButton button9 = new JButton("9");
         JButton button0 = new JButton("0");
+
+        // Creating special buttons
+        JButton plusButton = new JButton("+");
 
 
         // 5. Add behavior using a lambda expression (Action Listener)
@@ -125,6 +128,7 @@ public class Calculator {
         buttonPanel.add(button8);
         buttonPanel.add(button9);
         buttonPanel.add(button0);
+        buttonPanel.add(plusButton);
         frame.add(displayPanel);
         frame.add(buttonPanel);
         frame.setLocationRelativeTo(null); // Centers window
